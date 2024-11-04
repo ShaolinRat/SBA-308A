@@ -10,8 +10,8 @@ async function initialLoad() {
       throw new Error("Network response was not ok");
     }
     const data = await response.json();
-    const typeArray = data.results;
-    // console.log(typeArray);
+    const typeArray = data.results.splice(0, data.results.length - 2);
+    console.log(typeArray);
     typeArray.forEach((type, index) => {
       // console.log(type);
       let option = document.createElement("option");
