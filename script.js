@@ -27,6 +27,7 @@ async function initialLoad() {
   } catch (error) {
     console.log("There has been a problem with your fetch operation", error);
   }
+  loadPokemon();
 }
 
 // For some reason, the only way to bring up the options on the select box, is to
