@@ -100,7 +100,15 @@ async function loadPokemon() {
       // console.log(pokeData);
       console.log(pokeData2);
       imgLink = pokeData.sprites.front_default;
-      pokeDescription = pokeData2.flavor_text_entries[0].flavor_text;
+      flavorTextEntries = pokeData2.flavor_text_entries;
+      let pokeDescription;
+      for (let i = 0; i < flavorTextEntries.length; i++) {
+        if (flavorTextEntries[i].language.name != "en") {
+          continue;
+        } else {
+          pokeDescription = flavorTextEntries[i].flavor_text;
+        }
+      }
       newCard = createCard(imgLink, pokeDescription);
       cardContainer.appendChild(newCard);
     }
